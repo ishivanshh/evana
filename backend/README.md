@@ -174,6 +174,7 @@
     }
 }
 ```
+
 ## GET ALL THE PRODUCTS LISTED 
 >> GET(http://localhost:5001/api/products)
 
@@ -301,6 +302,130 @@
     }
 }
 ```
+
+## UPDATE PRODUCT WITH ID
+
+>> PUT(http://localhost:5001/api/products/:id)
+
+>> JSON BODY
+```
+{
+  "name": "Vanilla Dream Premium Candle",
+  "description": "A premium vanilla-scented soy wax candle that creates a warm, cozy, and relaxing atmosphere.",
+  "price": 999,
+  "discountPrice": 749,
+  "category": "6a8596e362554d2022386da4",
+  "images": [
+    "https://example.com/images/vanilla-premium-1.jpg",
+    "https://example.com/images/vanilla-premium-2.jpg"
+  ],
+  "stock": 45,
+  "sku": "VAN-CND-001",
+  "scent": "French Vanilla",
+  "waxType": "Soy Wax",
+  "burnTime": 50,
+  "size": "300g",
+  "isFeatured": true,
+  "isBestSeller": true,
+  "isActive": true
+}
+```
+>> RESPONSE 
+
+```
+{
+    "success": true,
+    "message": "Product updated successfully.",
+    "data": {
+        "_id": "6a85aabd62554d2022386dc0",
+        "name": "Vanilla Dream Premium Candle",
+        "description": "A premium vanilla-scented soy wax candle that creates a warm, cozy, and relaxing atmosphere.",
+        "price": 999,
+        "discountPrice": 749,
+        "category": {
+            "_id": "6a8596e362554d2022386da4",
+            "name": "Aromatic Candles",
+            "description": "Premium scented candles designed to create a relaxing and pleasant atmosphere.",
+            "createdAt": "2026-08-19T11:43:31.870Z",
+            "updatedAt": "2026-08-19T11:43:31.870Z",
+            "slug": "aromatic-candles",
+            "__v": 0
+        },
+        "images": [
+            "https://example.com/images/vanilla-premium-1.jpg",
+            "https://example.com/images/vanilla-premium-2.jpg"
+        ],
+        "stock": 45,
+        "sku": "VAN-CND-001",
+        "scent": "French Vanilla",
+        "waxType": "Soy Wax",
+        "burnTime": 50,
+        "size": "300g",
+        "isFeatured": true,
+        "isBestSeller": true,
+        "isActive": true,
+        "rating": 0,
+        "numReviews": 0,
+        "createdAt": "2026-08-19T13:08:13.876Z",
+        "updatedAt": "2026-08-19T13:24:54.097Z",
+        "slug": "vanilla-dream-premium-candle",
+        "__v": 1
+    }
+}
+```
+
+
+## DELETE A PRODUCT WITH ID
+
+>> DELETE(http://localhost:5001/api/products/:id)
+
+>> RESPONSE 
+```
+{
+    "success": true,
+    "message": "Product deleted successfully.",
+    "data": {
+        "_id": "6a85aabd62554d2022386dc0",
+        "name": "Vanilla Dream Premium Candle",
+        "description": "A premium vanilla-scented soy wax candle that creates a warm, cozy, and relaxing atmosphere.",
+        "price": 999,
+        "discountPrice": 749,
+        "category": {
+            "_id": "6a8596e362554d2022386da4",
+            "name": "Aromatic Candles",
+            "description": "Premium scented candles designed to create a relaxing and pleasant atmosphere.",
+            "createdAt": "2026-08-19T11:43:31.870Z",
+            "updatedAt": "2026-08-19T11:43:31.870Z",
+            "slug": "aromatic-candles",
+            "__v": 0
+        },
+        "images": [
+            "https://example.com/images/vanilla-premium-1.jpg",
+            "https://example.com/images/vanilla-premium-2.jpg"
+        ],
+        "stock": 45,
+        "sku": "VAN-CND-001",
+        "scent": "French Vanilla",
+        "waxType": "Soy Wax",
+        "burnTime": 50,
+        "size": "300g",
+        "isFeatured": true,
+        "isBestSeller": true,
+        "isActive": true,
+        "rating": 0,
+        "numReviews": 0,
+        "createdAt": "2026-08-19T13:08:13.876Z",
+        "updatedAt": "2026-08-19T13:24:54.097Z",
+        "slug": "vanilla-dream-premium-candle",
+        "__v": 1
+    }
+}
+```
+
+
+
+
+
 # CATEGORY API RESPONSES
 
 ## create categories API
