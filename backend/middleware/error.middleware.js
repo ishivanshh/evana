@@ -27,6 +27,25 @@ export const errorHandler = (err, req, res, next) => {
     }));
   }
 
+  if (err.name === 'ValidationError') {
+    statusCode = 422;
+    message = 'Validation failed.';
+    errors = Object.values(err.errors).map((error) => ({
+      field: error.path,
+      message: error.message
+    }));
+  }
+
+  if (err.name === 'JsonWebTokenError') {
+    statusCode = 401;
+    message = 'Invalid authentication token.';
+  }
+
+  if (err.name === 'TokenExpiredError') {
+    statusCode = 401;
+    message = 'Authentication token has expired.';
+  }
+
   if (process.env.NODE_ENV !== 'production' && statusCode === 500) {
     console.error(err);
   }
